@@ -78,4 +78,8 @@
 
 
 
-
+#type是最重要的，它创建了所有对象，如object、函数、list；     list不仅是类，还是type类的对象。
+object是最顶层的类；连type的父类也是object;
+  #太狠了，连自己都不放过。type能自己实例化自己。type如果当做对象来看，那么属于type类的一个对象；
+>>> type(type)
+<class 'type'>
