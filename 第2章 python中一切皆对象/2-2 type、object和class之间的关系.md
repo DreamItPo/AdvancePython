@@ -1,7 +1,6 @@
 ## type的两种用法
 - 生成一个类
 - 返回一个对象的类型
-
 ## type->int->1
 - type->class->obj
 ```
@@ -9,9 +8,14 @@
 >>> a = 1
 >>> type(1)
 <class 'int'>
+
 >>> type(int)
 <class 'type'> 
 
+>>> b="abc"
+>>> type(b)
+<class 'str'>
+# 自己定义一个类Student;类内容为pass
 >>> class Student:
 ...     pass
 ...
@@ -22,10 +26,13 @@
 
 >>> type(stu)
 <class '__main__.Student'>
+
 >>> type(Student)
 <class 'type'>
+
 >>> type(object)
 <class 'type'>
+
 >>> type(type)
 <class 'type'>
 
@@ -37,13 +44,32 @@
 >>> type(type)
 <class 'type'>
 
->>> Student.__bases__
+>>> a=[1,2]
+>>> type(a)
+<class 'list'>
+>>> type(list)
+<class 'type'>
+# 结论 ：我们的类是由type这个类生成的对象。我们平常所熟悉的对象，其实是由type类对象创建的对象。type是用来生成类的；
+# object其实是所有类都要继承的最顶层的基础类；
+>>> Student.__bases__   # 查看student的基类；
 (<class 'object'>,)
->>> MyStudent.__bases__
-(<class '__main__.Student'>,)
+
+>>> class MyStudent(Student):  # MyStudent继承Student;
+...     pass
+...
+
+>>> MyStudent.__bases__       #求 MyStudent的基类
+(<class '__main__.Student'>,)  #显示MyStudent的基类是Student
+#type是一个类，同时，type也是一个对象。
 >>> type.__bases__
-(<class 'object'>,)
->>> object.__bases__
+(<class 'object'>,)    #type的父类是object
+
+#python中一切都是对象，那么object这个基类也是对象。这个object是由什么类生成的呢？
+>>> type(object)  
+<class 'type'>   
+
+
+>>> object.__bases__  #object的父类是空
 ()
 ```
 
