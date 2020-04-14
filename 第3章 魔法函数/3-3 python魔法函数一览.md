@@ -159,7 +159,7 @@ company
 
 再次强调, \_\_repr\_\_不是因为该类继承了某一个对象才能去写这个方法, 魔法函数可以写到任何一个定义的类中去, 然后python解释器就是识别出这个对象有该特性, 然后再调试模式下company会被解释器转换为repr(company), 然后再去调用company.\_\_repr\_\_().
 
-```
+```python
 class Company(object):
     def __init__(self, employee__list):
         self.employee = employee__list
@@ -171,7 +171,7 @@ class Company(object):
         return '.'.join(self.employee)
 
 company = Company(["tom", "bob", "jane"])
-print(company) # str 输出
+print(company) # str 输出   print（company)等价于print(str(company))
 company        # repr输出
 
 tom,bob,jane   # 打印对象
